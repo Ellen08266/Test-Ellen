@@ -1,4 +1,4 @@
-/* Box sizing pro celou stránku */
+ /* Box sizing pro celou stránku */
 html {
     box-sizing: border-box;
   }
@@ -346,5 +346,5 @@ html {
       font-size: 1rem;
       padding: 10px 20px;
     }
-  }
+  }  
   
