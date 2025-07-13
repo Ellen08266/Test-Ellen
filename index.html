@@ -163,6 +163,7 @@ const preklady = {
     label_odjezd: "Datum odjezdu:",
     label_poznamka: "Poznámka:",
     btn_odeslat: "Odeslat rezervaci",
+    potvrzeni: "Rezervace byla úspěšně odeslána! Děkujeme. 🙏",
   },
   en: {
     hlavicka: "Apartment in Albania",
@@ -185,6 +186,7 @@ const preklady = {
     label_odjezd: "Departure date:",
     label_poznamka: "Note:",
     btn_odeslat: "Send Booking",
+    potvrzeni: "Booking was successfully sent! Thank you. 🙏",
   },
 };
 
@@ -240,17 +242,21 @@ document.addEventListener("DOMContentLoaded", () => {
         Accept: "application/json",
       },
     })
-      .then((response) => {
-        if (response.ok) {
-          form.reset();
-          document.getElementById("uspech").style.display = "block";
-        } else {
-          alert("Odeslání selhalo, zkuste to prosím znovu.");
-        }
-      })
-      .catch(() => {
-        alert("Odeslání selhalo, zkuste to prosím znovu.");
-      });
+      // ... zůstává vše před tím stejné
+
+.then((response) => {
+  if (response.ok) {
+    form.reset();
+    const jazyk = localStorage.getItem("language") || "cz";
+    const zprava = preklady[jazyk].potvrzeni;
+    const uspechEl = document.getElementById("uspech");
+    uspechEl.textContent = zprava;
+    uspechEl.style.display = "block";
+  } else {
+    alert("Odeslání selhalo, zkuste to prosím znovu.");
+  }
+})
+
   });
 });
 
