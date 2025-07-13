@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Apartmán v Albánii</title>
     <link rel="stylesheet" href="style.css" />
+    <script defer src="translations.js"></script>
+    <script defer src="app.js"></script>
     <style>
         .language-dropdown {
             position: relative;
@@ -151,16 +153,19 @@
         <table>
             <thead>
                 <tr>
-                  <td data-i18n="mesic_cerven">Červen</td>
-                  <td data-i18n="mesic_cervenec">Červenec</td>
-                  <td data-i18n="mesic_srpen">Srpen</td>
+                    <td data-i18n="mesic_cerven">Červen</td>
+                    <td data-i18n="mesic_cervenec">Červenec</td>
+                    <td data-i18n="mesic_srpen">Srpen</td>
                 </tr>
                 <tr>
-                  <td><span class="price" data-kc="1250">1250 Kč</span> / <span data-i18n="jednotka_den">den</span></td>
-                  <td><span class="price" data-kc="1625">1625 Kč</span> / <span data-i18n="jednotka_den">den</span></td>
-                  <td><span class="price" data-kc="2000">2000 Kč</span> / <span data-i18n="jednotka_den">den</span></td>
+                    <td><span class="price" data-kc="1250">1250 Kč</span> / <span data-i18n="jednotka_den">den</span>
+                    </td>
+                    <td><span class="price" data-kc="1625">1625 Kč</span> / <span data-i18n="jednotka_den">den</span>
+                    </td>
+                    <td><span class="price" data-kc="2000">2000 Kč</span> / <span data-i18n="jednotka_den">den</span>
+                    </td>
                 </tr>
-              </thead>
+            </thead>
         </table>
     </section>
 
@@ -213,8 +218,7 @@
                 mesic_cervenec: "Červenec",
                 mesic_srpen: "Srpen",
                 jednotka_den: "den",
-                text_apartman: "Objevte kouzlo Albánie a užijte si dovolenou snů v našem nádherném apartmánu u moře! Nabízíme moderní a vkusně zařízený apartmán s klimatizací a wi-fi o dispozici 2+kk, situovaný ve 4. patře svýtahem. K dispozici jsou rovnou dva balkony s krásným výhledem, které přímo vybízejí k ranní kávě nebo večerní sklence vína při západu slunce. Apartmán se nachází pouhých 100 metrů od moře, v samém srdci živé pobřežní promenády, kde najdete množství útulných barů, vynikajících restaurací, obchůdků, kaváren i tradičních tržišť. V těsné blízkosti je dostupná jak soukromá pláž, tak i veřejná, a to vše v příjemné dochozí vzdálenosti. Lokalita je ideální pro milovníky moře, dobrého jídla a středomořské atmosféry. Díky skvělé poloze je apartmán vzdálen pouhých 35 minut jízdy od mezinárodního letiště v Tiraně, což z nějčiní perfektní volbu pro vaši příští dovolenou bez zbytečného cestování. Neváhejte a rezervujte si svůj termín ještě dnes – Albánie si vás zamiluje a vy ji také!" 
-                
+                text_apartman: "Objevte kouzlo Albánie a užijte si dovolenou snů v našem nádherném apartmánu u moře!\n\n Nabízíme moderní a vkusně zařízený apartmán s klimatizací a wi-fi o dispozici 2+kk, situovaný ve 4. patře s výtahem. K dispozici jsou rovnou dva balkony s krásným výhledem, které přímo vybízejí k ranní kávě nebo večerní sklence vína při západu slunce.\n\n Apartmán se nachází pouhých 100 metrů od moře, v samém srdci živé pobřežní promenády, kde najdete množství útulných barů, vynikajících restaurací, obchůdků, kaváren i tradičních tržišť. \n\nV těsné blízkosti je dostupná jak soukromá pláž, tak i veřejná, a to vše v příjemné dochozí vzdálenosti. Lokalita je ideální pro milovníky moře, dobrého jídla a středomořské atmosféry.\n\n Díky skvělé poloze je apartmán vzdálen pouhých 35 minut jízdy od mezinárodního letiště v Tiraně, což z něj činí perfektní volbu pro vaši příští dovolenou bez zbytečného cestování.\n\n Neváhejte a rezervujte si svůj termín ještě dnes – Albánie si vás zamiluje a vy ji také!"
             },
 
             en: {
@@ -303,45 +307,45 @@
         });
     </script>
 
-<script>
-    const exchangeRate = 25; // 1 EUR = 25 Kč (můžeš upravit)
-  
-    function updatePricesToCurrency(currency) {
-      const prices = document.querySelectorAll(".price");
-      prices.forEach(el => {
-        const kc = parseFloat(el.dataset.kc);
-        if (currency === "cz") {
-          el.textContent = kc + " Kč";
-        } else if (currency === "en") {
-          const eur = (kc / exchangeRate).toFixed(2);
-          el.textContent = "€" + eur;
+    <script>
+        const exchangeRate = 25; // 1 EUR = 25 Kč (můžeš upravit)
+
+        function updatePricesToCurrency(currency) {
+            const prices = document.querySelectorAll(".price");
+            prices.forEach(el => {
+                const kc = parseFloat(el.dataset.kc);
+                if (currency === "cz") {
+                    el.textContent = kc + " Kč";
+                } else if (currency === "en") {
+                    const eur = (kc / exchangeRate).toFixed(2);
+                    el.textContent = "€" + eur;
+                }
+            });
         }
-      });
-    }
-  
-    function setLanguage(lang) {
-      localStorage.setItem("language", lang);
-      const elems = document.querySelectorAll("[data-i18n]");
-      elems.forEach((el) => {
-        const key = el.getAttribute("data-i18n");
-        if (preklady[lang][key]) {
-          el.textContent = preklady[lang][key];
+
+        function setLanguage(lang) {
+            localStorage.setItem("language", lang);
+            const elems = document.querySelectorAll("[data-i18n]");
+            elems.forEach((el) => {
+                const key = el.getAttribute("data-i18n");
+                if (preklady[lang][key]) {
+                    el.textContent = preklady[lang][key];
+                }
+            });
+
+            const placeholders = document.querySelectorAll("[data-i18n-placeholder]");
+            placeholders.forEach((el) => {
+                const key = el.getAttribute("data-i18n-placeholder");
+                if (preklady[lang][key]) {
+                    el.setAttribute("placeholder", preklady[lang][key]);
+                }
+            });
+
+            // aktualizuj ceny
+            updatePricesToCurrency(lang);
         }
-      });
-  
-      const placeholders = document.querySelectorAll("[data-i18n-placeholder]");
-      placeholders.forEach((el) => {
-        const key = el.getAttribute("data-i18n-placeholder");
-        if (preklady[lang][key]) {
-          el.setAttribute("placeholder", preklady[lang][key]);
-        }
-      });
-  
-      // aktualizuj ceny
-      updatePricesToCurrency(lang);
-    }
-  </script>
-  
+    </script>
+
 </body>
 
 </html>
