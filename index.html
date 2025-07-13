@@ -2,218 +2,259 @@
 <html lang="cs">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="style.css" rel="stylesheet">
-    <title>Web-Ellen</title>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Apartmán v Albánii</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
+  <header>
+    <h1 data-i18n="hlavicka">Apartmán v Albánii</h1>
+  </header>
 
-    <header>
+  <nav>
+    <a href="#apartman" data-i18n="nav_apartman">Apartmán</a>
+    <a href="#rezervace" data-i18n="nav_rezervace">Rezervace</a>
+    <a href="#cennik" data-i18n="nav_cennik">Ceník</a>
+    <a href="#fotogalerie" data-i18n="nav_foto">Fotogalerie</a>
+    <a href="#kontakt" data-i18n="nav_kontakt">Kontakt</a>
 
-        <h1>Apartmán v Albánii</h1>
+    <div class="language-dropdown">
+      <button class="lang-btn">🌍 Jazyk ▼</button>
+      <div class="lang-menu">
+        <div data-lang="cz"><img src="https://flagcdn.com/w40/cz.png" alt="CZ" /> Čeština</div>
+        <div data-lang="en"><img src="https://flagcdn.com/w40/gb.png" alt="EN" /> English</div>
+      </div>
+    </div>
+  </nav>
 
-    </header>
+  <section class="apartman">
+    <h2 id="apartman">Apartmán</h2>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis provident magni fuga sed rem delectus
+      perferendis numquam harum voluptas, itaque quam soluta ducimus quibusdam dolor voluptatum? Assumenda itaque
+      maiores veniam, velit perspiciatis veritatis atque.
+    </p>
+  </section>
 
-    <nav>
+  <section class="rezervace">
+    <h2 id="rezervace">Rezervace</h2>
 
-        <a href="#apartman">Apartmán</a>
-        <a href="#rezervace">Rezervace</a>
-        <a href="cennik">Cenník</a>
-        <a href="#fotogalerie">Fotogalerie</a>
-        <a href="#kontakt">Kontakt</a>
+    <form
+      id="rezervacni-formular"
+      action="https://formspree.io/f/xblkrgoj"
+      method="POST"
+      accept-charset="UTF-8"
+      novalidate
+    >
+      <label for="jmeno" data-i18n="label_jmeno">Jméno a příjmení:</label>
+      <input
+        type="text"
+        id="jmeno"
+        name="Jméno"
+        placeholder="Zadejte své jméno"
+        required
+        data-i18n-placeholder="placeholder_jmeno"
+      />
 
-    </nav>
+      <label for="email" data-i18n="label_email">Email:</label>
+      <input type="email" id="email" name="_replyto" required placeholder="Zadejte svůj email" data-i18n-placeholder="placeholder_email" />
 
-    <section class=“apartman”>
+      <label for="pocet" data-i18n="label_pocet">Počet osob:</label>
+      <select id="pocet" name="Počet osob" required>
+        <option value="" data-i18n="option_vyberte">Vyberte...</option>
+        <option value="1" data-i18n="option_1osoba">1 osoba</option>
+        <option value="2" data-i18n="option_2osoby">2 osoby</option>
+        <option value="3" data-i18n="option_3osoby">3 osoby</option>
+        <option value="4" data-i18n="option_4osoby">4 osoby</option>
+      </select>
 
-        <h2 id="apartman">Apartmán</h2>
+      <label for="prijezd" data-i18n="label_prijezd">Datum příjezdu:</label>
+      <input type="date" id="prijezd" name="Příjezd" required />
 
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis provident magni fuga sed rem delectus
-            perferendis numquam harum voluptas, itaque quam soluta ducimus quibusdam dolor voluptatum? Assumenda itaque
-            maiores <strong>veniam, velit perspiciatis veritatis atque, ex fugiat quisquam recusandae minus. Nulla,
-                deleniti. Id
-                sapiente quasi cupiditate accusamus ad. Repudiandae itaque repellendus, provident tenetur ipsa harum
-                aspernatur</strong> voluptatem hic impedit reprehenderit nam tempora incidunt ex optio unde reiciendis
-            magnam
-            dignissimos commodi, libero quam recusandae id odio? Optio maiores ab iste quidem! Cupiditate error
-            explicabo blanditiis adipisci delectus repellat exercitationem accusantium, aut mollitia iusto natus quis
-            laudantium harum totam quas autem illo est!</p>
+      <label for="odjezd" data-i18n="label_odjezd">Datum odjezdu:</label>
+      <input type="date" id="odjezd" name="Odjezd" required />
 
+      <label for="poznamka" data-i18n="label_poznamka">Poznámka:</label>
+      <textarea id="poznamka" name="Poznámka" rows="4"></textarea>
 
-    </section>
+      <!-- Přesměrování nebo potvrzení zpracujeme JS -->
+      <button type="submit" data-i18n="btn_odeslat">Odeslat rezervaci</button>
 
-    <section class="rezervace">
+      <p id="uspech" style="display:none; color: green; font-weight: bold; margin-top: 20px;">
+        Rezervace byla úspěšně odeslána! Děkujeme. 🙏
+      </p>
+    </form>
+  </section>
 
-        <h2 id="rezervace">Rezervace</h2>
+  <section class="cennik">
+    <h2 id="cennik">Ceník</h2>
+    <table>
+      <tbody>
+        <tr>
+          <th colspan="3"><strong>2025</strong></th>
+        </tr>
+        <tr>
+          <th>ČERVEN</th>
+          <th>ČERVENEC</th>
+          <th>SRPEN</th>
+        </tr>
+        <tr>
+          <td>1000,- Kč/Den</td>
+          <td>1500,- Kč/Den</td>
+          <td>2000,- Kč/Den</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
 
-        <form action="https://formspree.io/f/xblkrgoj" method="POST" accept-charset="UTF-8" id="rezervacni-formular">
+  <section class="fotogalerie">
+    <h2 id="fotogalerie">Fotogalerie</h2>
+    <img src="foto/obyvak.jpg" alt="Foto bytu obývák" />
+    <img src="foto/loznice.jpg" alt="Foto bytu ložnice" />
+    <img src="foto/kuchyn.jpg" alt="Foto bytu kuchyně" />
+    <img src="foto/koupelna.jpg" alt="Foto bytu koupelna" />
+    <img src="foto/chodba.jpg" alt="Foto bytu chodba" />
+    <img src="foto/terasa.jpg" alt="Foto bytu terasa" />
+  </section>
 
-            <label for="jmeno">Jméno a příjmení:</label>
-            <input type="text" id="jmeno" name="Jméno" required>
+  <section class="kontakt">
+    <h2 id="kontakt">Kontakt</h2>
+    <p><strong>Ellen Dalessi</strong><br />Ulice 1234<br />Praha 123 00</p>
+    <p>
+      <strong>Email:</strong>
+      <a href="mailto:ellen@dalessi.cz"><strong>ellen@dalessi.cz</strong></a>
+    </p>
+    <p>
+      <strong>Mobil:</strong>
+      <a href="tel:+420123456789"><strong>123 45 67 89</strong></a>
+    </p>
+  </section>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="Email" required>
-
-            <label for="pocet">Počet osob:</label>
-            <select id="pocet" name="Počet osob" required>
-                <option value="">Vyberte...</option>
-                <option value="1">1 osoba</option>
-                <option value="2">2 osoby</option>
-                <option value="3">3 osoby</option>
-                <option value="4">4 osoby</option>
-            </select>
-
-            <label for="prijezd">Datum příjezdu:</label>
-            <input type="date" id="prijezd" name="Příjezd" required>
-
-            <label for="odjezd">Datum odjezdu:</label>
-            <input type="date" id="odjezd" name="Odjezd" required>
-
-            <label for="poznamka">Poznámka:</label>
-            <textarea id="poznamka" name="Poznámka" rows="4"></textarea>
-
-            <!-- Možnost přesměrování na děkovací stránku -->
-            <input type="hidden" name="_redirect" value="https://tvujweb.cz/dekujeme.html">
-
-            <button type="submit">Odeslat rezervaci</button>
-        </form>
-
-
-    </section>
-    <section class="cennik">
-
-        <h2 id="cennik">Cenník</h2>
-
-
-        <table>
-            <tbody>
-                <tr>
-                    <section>
-
-                        <th colspan="3"><strong>2 0 2 5</strong></th>
-
-                    </section>
-
-                </tr>
-                <tr>
-                    <th>ČERVEN</th>
-                    <th>ČERVENEC</th>
-                    <th>SRPEN</th>
-                </tr>
-                <tr>
-                    <td>1000,- Kč/Den</td>
-                    <td>1500,- Kč/Den</td>
-                    <td>2000,- Kč/Den</td>
-                </tr>
-            </tbody>
-        </table>
-
-
-    </section>
-
-    <section class="fotogalerie">
-
-        <h2 id="fotogalerie">Fotogalerie</h2>
-
-        <img src="foto/obyvak.jpg" alt="Foto bytu obyvak">
-        <img src="foto/loznice.jpg" alt="Foto bytu ložnice">
-        <img src="foto/kuchyn.jpg" alt="Foto bytu kuchyn">
-        <img src="foto/koupelna.jpg" alt="Foto bytu koupelny">
-        <img src="foto/chodba.jpg" alt="Foto bytu chodba">
-        <img src="foto/terasa.jpg" alt="Foto bytu terasa">
-
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis provident magni fuga sed rem delectus
-            perferendis numquam harum voluptas, itaque quam soluta ducimus quibusdam dolor voluptatum? Assumenda itaque
-            maiores veniam, velit perspiciatis veritatis atque, ex fugiat quisquam recusandae minus.</p>
-
-    </section>
-
-    <section class="kontakt">
-
-        <h2 id="kontakt">Kontakt</h2>
-
-        <p><strong>Ellen Dalessi</strong><br>
-            <strong>Ulice 1234</strong><br>
-            <strong>Praha 123 00</strong><br>
-        </p>
-
-        <p> <strong>Email</strong> <a href="#"> <strong>ellen@dalessi.cz</strong></a> </p> <br>
-        <p> <strong>Mobil</strong> <a href="#"> <strong>123 45 67 89</strong></a></p><br>
-
-    </section>
-
-</body>
-
-<footer>
-
+  <footer>
     <p>© Ellen Dalessi 2025</p>
+  </footer>
 
-</footer>
+  <script src="script.js"></script>
 
+  <script>
+  
+  // Jazykový přepínač s localStorage
+const preklady = {
+  cz: {
+    hlavicka: "Apartmán v Albánii",
+    nav_apartman: "Apartmán",
+    nav_rezervace: "Rezervace",
+    nav_cennik: "Ceník",
+    nav_foto: "Fotogalerie",
+    nav_kontakt: "Kontakt",
+    label_jmeno: "Jméno a příjmení:",
+    placeholder_jmeno: "Zadejte své jméno",
+    label_email: "Email:",
+    placeholder_email: "Zadejte svůj email",
+    label_pocet: "Počet osob:",
+    option_vyberte: "Vyberte...",
+    option_1osoba: "1 osoba",
+    option_2osoby: "2 osoby",
+    option_3osoby: "3 osoby",
+    option_4osoby: "4 osoby",
+    label_prijezd: "Datum příjezdu:",
+    label_odjezd: "Datum odjezdu:",
+    label_poznamka: "Poznámka:",
+    btn_odeslat: "Odeslat rezervaci",
+  },
+  en: {
+    hlavicka: "Apartment in Albania",
+    nav_apartman: "Apartment",
+    nav_rezervace: "Booking",
+    nav_cennik: "Price List",
+    nav_foto: "Gallery",
+    nav_kontakt: "Contact",
+    label_jmeno: "Full Name:",
+    placeholder_jmeno: "Enter your name",
+    label_email: "Email:",
+    placeholder_email: "Enter your email",
+    label_pocet: "Number of people:",
+    option_vyberte: "Select...",
+    option_1osoba: "1 person",
+    option_2osoby: "2 people",
+    option_3osoby: "3 people",
+    option_4osoby: "4 people",
+    label_prijezd: "Arrival date:",
+    label_odjezd: "Departure date:",
+    label_poznamka: "Note:",
+    btn_odeslat: "Send Booking",
+  },
+};
 
+function setLanguage(lang) {
+  localStorage.setItem("language", lang);
+  const elems = document.querySelectorAll("[data-i18n]");
+  elems.forEach((el) => {
+    const key = el.getAttribute("data-i18n");
+    if (preklady[lang][key]) {
+      el.textContent = preklady[lang][key];
+    }
+  });
 
+  // Placeholdery
+  const placeholders = document.querySelectorAll("[data-i18n-placeholder]");
+  placeholders.forEach((el) => {
+    const key = el.getAttribute("data-i18n-placeholder");
+    if (preklady[lang][key]) {
+      el.setAttribute("placeholder", preklady[lang][key]);
+    }
+  });
+}
 
+document.addEventListener("DOMContentLoaded", () => {
+  const savedLang = localStorage.getItem("language") || "cz";
+  setLanguage(savedLang);
 
-
-<script>
-    document.getElementById('rezervacni-formular').addEventListener('submit', function (event) {
-        event.preventDefault(); // zabráníme klasickému odeslání
-
-        // načteme hodnoty
-        const jmeno = this.jmeno.value.trim();
-        const email = this.email.value.trim();
-        const prijemce = this.prijemce.value;
-        const prijed = this.prijezd.value;
-        const odjed = this.odjezd.value;
-
-        // základní validace
-        if (!jmeno || !email || !prijemce || !prijed || !odjed) {
-            alert('Prosím, vyplňte všechna povinná pole.');
-            return;
-        }
-
-        if (new Date(prijed) >= new Date(odjed)) {
-            alert('Datum odjezdu musí být později než datum příjezdu.');
-            return;
-        }
-
-        // Tady můžeš přidat odeslání na server nebo API
-
-        // Prozatím ukážeme potvrzení
-        alert(`Děkujeme za rezervaci, ${jmeno}! Ozveme se vám co nejdříve na email ${email}.`);
-
-        // Vyčistíme formulář
-        this.reset();
+  // Přepínač jazyka
+  document.querySelectorAll(".lang-menu div").forEach((div) => {
+    div.addEventListener("click", () => {
+      const lang = div.getAttribute("data-lang");
+      setLanguage(lang);
     });
-</script>
+  });
 
-<script>
-    document.getElementById('rezervacni-formular').addEventListener('submit', function (event) {
-        const jmeno = document.getElementById('jmeno').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const prijezd = document.getElementById('prijezd').value;
-        const odjezd = document.getElementById('odjezd').value;
+  // Formulář - zabránění přesměrování
+  const form = document.getElementById("rezervacni-formular");
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
 
-        // Základní validace
-        if (!jmeno || !email || !prijezd || !odjezd) {
-            alert('Prosím, vyplňte všechna povinná pole.');
-            event.preventDefault();
-            return;
+    // Základní validace
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    // Odeslat data přes fetch na Formspree
+    const data = new FormData(form);
+    fetch(form.action, {
+      method: "POST",
+      body: data,
+      headers: {
+        Accept: "application/json",
+      },
+    })
+      .then((response) => {
+        if (response.ok) {
+          form.reset();
+          document.getElementById("uspech").style.display = "block";
+        } else {
+          alert("Odeslání selhalo, zkuste to prosím znovu.");
         }
+      })
+      .catch(() => {
+        alert("Odeslání selhalo, zkuste to prosím znovu.");
+      });
+  });
+});
 
-        // Kontrola platnosti dat
-        if (new Date(prijezd) >= new Date(odjezd)) {
-            alert('Datum odjezdu musí být pozdější než datum příjezdu.');
-            event.preventDefault();
-            return;
-        }
-    });
 </script>
-
 
 </body>
 
