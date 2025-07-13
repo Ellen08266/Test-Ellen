@@ -1,5 +1,4 @@
-
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="cs">
 
 <head>
@@ -23,6 +22,7 @@
 
         <a href="#apartman">Apartmán</a>
         <a href="#rezervace">Rezervace</a>
+        <a href="cennik">Cenník</a>
         <a href="#fotogalerie">Fotogalerie</a>
         <a href="#kontakt">Kontakt</a>
 
@@ -50,14 +50,39 @@
 
         <h2 id="rezervace">Rezervace</h2>
 
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis provident magni fuga sed rem delectus
-            perferendis numquam harum voluptas, itaque quam soluta ducimus quibusdam dolor voluptatum? Assumenda itaque
-            maiores veniam, velit perspiciatis veritatis atque, ex fugiat quisquam recusandae minus. Nulla, deleniti. Id
-            sapiente quasi cupiditate accusamus ad. Repudiandae itaque repellendus, provident tenetur ipsa harum
-            aspernatur voluptatem hic impedit reprehenderit nam tempora incidunt ex optio unde reiciendis magnam
-            dignissimos commodi, libero quam recusandae id odio? Optio maiores ab iste quidem! Cupiditate error
-            explicabo blanditiis adipisci delectus repellat exercitationem accusantium, aut mollitia iusto natus quis
-            laudantium harum totam quas autem illo est!</p>
+        <form action="https://formspree.io/f/xblkrgoj" method="POST" accept-charset="UTF-8" id="rezervacni-formular">
+
+            <label for="jmeno">Jméno a příjmení:</label>
+            <input type="text" id="jmeno" name="Jméno" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="Email" required>
+
+            <label for="pocet">Počet osob:</label>
+            <select id="pocet" name="Počet osob" required>
+                <option value="">Vyberte...</option>
+                <option value="1">1 osoba</option>
+                <option value="2">2 osoby</option>
+                <option value="3">3 osoby</option>
+                <option value="4">4 osoby</option>
+            </select>
+
+            <label for="prijezd">Datum příjezdu:</label>
+            <input type="date" id="prijezd" name="Příjezd" required>
+
+            <label for="odjezd">Datum odjezdu:</label>
+            <input type="date" id="odjezd" name="Odjezd" required>
+
+            <label for="poznamka">Poznámka:</label>
+            <textarea id="poznamka" name="Poznámka" rows="4"></textarea>
+
+            <!-- Možnost přesměrování na děkovací stránku -->
+            <input type="hidden" name="_redirect" value="https://tvujweb.cz/dekujeme.html">
+
+            <button type="submit">Odeslat rezervaci</button>
+        </form>
+
+
     </section>
     <section class="cennik">
 
@@ -67,7 +92,12 @@
         <table>
             <tbody>
                 <tr>
-                    <th colspan="3"><strong>2025</strong></th>
+                    <section>
+
+                        <th colspan="3"><strong>2 0 2 5</strong></th>
+
+                    </section>
+
                 </tr>
                 <tr>
                     <th>ČERVEN</th>
@@ -124,8 +154,67 @@
 
 </footer>
 
-</html>
+
+
+
+
+
+<script>
+    document.getElementById('rezervacni-formular').addEventListener('submit', function (event) {
+        event.preventDefault(); // zabráníme klasickému odeslání
+
+        // načteme hodnoty
+        const jmeno = this.jmeno.value.trim();
+        const email = this.email.value.trim();
+        const prijemce = this.prijemce.value;
+        const prijed = this.prijezd.value;
+        const odjed = this.odjezd.value;
+
+        // základní validace
+        if (!jmeno || !email || !prijemce || !prijed || !odjed) {
+            alert('Prosím, vyplňte všechna povinná pole.');
+            return;
+        }
+
+        if (new Date(prijed) >= new Date(odjed)) {
+            alert('Datum odjezdu musí být později než datum příjezdu.');
+            return;
+        }
+
+        // Tady můžeš přidat odeslání na server nebo API
+
+        // Prozatím ukážeme potvrzení
+        alert(`Děkujeme za rezervaci, ${jmeno}! Ozveme se vám co nejdříve na email ${email}.`);
+
+        // Vyčistíme formulář
+        this.reset();
+    });
+</script>
+
+<script>
+    document.getElementById('rezervacni-formular').addEventListener('submit', function (event) {
+        const jmeno = document.getElementById('jmeno').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const prijezd = document.getElementById('prijezd').value;
+        const odjezd = document.getElementById('odjezd').value;
+
+        // Základní validace
+        if (!jmeno || !email || !prijezd || !odjezd) {
+            alert('Prosím, vyplňte všechna povinná pole.');
+            event.preventDefault();
+            return;
+        }
+
+        // Kontrola platnosti dat
+        if (new Date(prijezd) >= new Date(odjezd)) {
+            alert('Datum odjezdu musí být pozdější než datum příjezdu.');
+            event.preventDefault();
+            return;
+        }
+    });
+</script>
 
 
 </body>
+
 </html>
