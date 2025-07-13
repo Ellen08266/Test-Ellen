@@ -3,9 +3,54 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Apartmán v Albánii</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .language-dropdown {
+      position: relative;
+      display: inline-block;
+      float: right;
+      margin: 10px 20px;
+    }
+    .lang-btn {
+      background-color: bisque;
+      border: none;
+      padding: 10px 15px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .lang-menu {
+      display: none;
+      position: absolute;
+      right: 0;
+      background-color: white;
+      min-width: 150px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      z-index: 1;
+      border-radius: 6px;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+    .lang-menu div {
+      padding: 10px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
+    .lang-menu div img {
+      margin-right: 8px;
+      width: 24px;
+      height: 16px;
+    }
+    .language-dropdown:hover .lang-menu {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 
 <body>
@@ -30,33 +75,15 @@
   </nav>
 
   <section class="apartman">
-    <h2 id="apartman">Apartmán</h2>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis provident magni fuga sed rem delectus
-      perferendis numquam harum voluptas, itaque quam soluta ducimus quibusdam dolor voluptatum? Assumenda itaque
-      maiores veniam, velit perspiciatis veritatis atque.
-    </p>
+    <h2 id="apartman" data-i18n="nav_apartman">Apartmán</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. <strong>Voluptas, velit.</strong></p>
   </section>
 
   <section class="rezervace">
-    <h2 id="rezervace">Rezervace</h2>
-
-    <form
-      id="rezervacni-formular"
-      action="https://formspree.io/f/xblkrgoj"
-      method="POST"
-      accept-charset="UTF-8"
-      novalidate
-    >
+    <h2 id="rezervace" data-i18n="nav_rezervace">Rezervace</h2>
+    <form action="https://formspree.io/f/xblkrgoj" method="POST" id="rezervacni-formular">
       <label for="jmeno" data-i18n="label_jmeno">Jméno a příjmení:</label>
-      <input
-        type="text"
-        id="jmeno"
-        name="Jméno"
-        placeholder="Zadejte své jméno"
-        required
-        data-i18n-placeholder="placeholder_jmeno"
-      />
+      <input type="text" id="jmeno" name="Jméno" required placeholder="Zadejte své jméno" data-i18n-placeholder="placeholder_jmeno" />
 
       <label for="email" data-i18n="label_email">Email:</label>
       <input type="email" id="email" name="_replyto" required placeholder="Zadejte svůj email" data-i18n-placeholder="placeholder_email" />
@@ -79,189 +106,158 @@
       <label for="poznamka" data-i18n="label_poznamka">Poznámka:</label>
       <textarea id="poznamka" name="Poznámka" rows="4"></textarea>
 
-      <!-- Přesměrování nebo potvrzení zpracujeme JS -->
       <button type="submit" data-i18n="btn_odeslat">Odeslat rezervaci</button>
-
-      <p id="uspech" style="display:none; color: green; font-weight: bold; margin-top: 20px;">
-        Rezervace byla úspěšně odeslána! Děkujeme. 🙏
+      <p id="uspech" style="display: none; color: green; font-weight: bold; margin-top: 20px;" data-i18n="potvrzeni">
+        Rezervace byla úspěšně odeslána! Děkujeme.
       </p>
     </form>
   </section>
 
   <section class="cennik">
-    <h2 id="cennik">Ceník</h2>
+    <h2 id="cennik" data-i18n="nav_cennik">Ceník</h2>
     <table>
+      <thead>
+        <tr>
+          <th>Červen</th>
+          <th>Červenec</th>
+          <th>Srpen</th>
+        </tr>
+      </thead>
       <tbody>
         <tr>
-          <th colspan="3"><strong>2025</strong></th>
-        </tr>
-        <tr>
-          <th>ČERVEN</th>
-          <th>ČERVENEC</th>
-          <th>SRPEN</th>
-        </tr>
-        <tr>
-          <td>1000,- Kč/Den</td>
-          <td>1500,- Kč/Den</td>
-          <td>2000,- Kč/Den</td>
+          <td>1000 Kč / den</td>
+          <td>1500 Kč / den</td>
+          <td>2000 Kč / den</td>
         </tr>
       </tbody>
     </table>
   </section>
 
-  <section class="fotogalerie">
-    <h2 id="fotogalerie">Fotogalerie</h2>
-    <img src="foto/obyvak.jpg" alt="Foto bytu obývák" />
-    <img src="foto/loznice.jpg" alt="Foto bytu ložnice" />
-    <img src="foto/kuchyn.jpg" alt="Foto bytu kuchyně" />
-    <img src="foto/koupelna.jpg" alt="Foto bytu koupelna" />
-    <img src="foto/chodba.jpg" alt="Foto bytu chodba" />
-    <img src="foto/terasa.jpg" alt="Foto bytu terasa" />
+  <section class="fotogalerie" id="fotogalerie">
+    <h2 data-i18n="nav_foto">Fotogalerie</h2>
+    <img src="foto/obyvak.jpg" alt="Obývací pokoj" />
+    <img src="foto/loznice.jpg" alt="Ložnice" />
+    <img src="foto/kuchyn.jpg" alt="Kuchyň" />
+    <img src="foto/koupelna.jpg" alt="Koupelna" />
+    <img src="foto/chodba.jpg" alt="Chodba" />
+    <img src="foto/terasa.jpg" alt="Terasa" />
   </section>
 
-  <section class="kontakt">
-    <h2 id="kontakt">Kontakt</h2>
+  <section class="kontakt" id="kontakt">
+    <h2 data-i18n="nav_kontakt">Kontakt</h2>
     <p><strong>Ellen Dalessi</strong><br />Ulice 1234<br />Praha 123 00</p>
-    <p>
-      <strong>Email:</strong>
-      <a href="mailto:ellen@dalessi.cz"><strong>ellen@dalessi.cz</strong></a>
-    </p>
-    <p>
-      <strong>Mobil:</strong>
-      <a href="tel:+420123456789"><strong>123 45 67 89</strong></a>
-    </p>
+    <p><strong>Email:</strong> <a href="mailto:ellen@dalessi.cz">ellen@dalessi.cz</a></p>
+    <p><strong>Mobil:</strong> <a href="tel:123456789">123 45 67 89</a></p>
   </section>
 
   <footer>
-    <p>© Ellen Dalessi 2025</p>
+    <p>&copy; Ellen Dalessi 2025</p>
   </footer>
 
-  <script src="script.js"></script>
-
   <script>
-  
-  // Jazykový přepínač s localStorage
-const preklady = {
-  cz: {
-    hlavicka: "Apartmán v Albánii",
-    nav_apartman: "Apartmán",
-    nav_rezervace: "Rezervace",
-    nav_cennik: "Ceník",
-    nav_foto: "Fotogalerie",
-    nav_kontakt: "Kontakt",
-    label_jmeno: "Jméno a příjmení:",
-    placeholder_jmeno: "Zadejte své jméno",
-    label_email: "Email:",
-    placeholder_email: "Zadejte svůj email",
-    label_pocet: "Počet osob:",
-    option_vyberte: "Vyberte...",
-    option_1osoba: "1 osoba",
-    option_2osoby: "2 osoby",
-    option_3osoby: "3 osoby",
-    option_4osoby: "4 osoby",
-    label_prijezd: "Datum příjezdu:",
-    label_odjezd: "Datum odjezdu:",
-    label_poznamka: "Poznámka:",
-    btn_odeslat: "Odeslat rezervaci",
-    potvrzeni: "Rezervace byla úspěšně odeslána! Děkujeme. 🙏",
-  },
-  en: {
-    hlavicka: "Apartment in Albania",
-    nav_apartman: "Apartment",
-    nav_rezervace: "Booking",
-    nav_cennik: "Price List",
-    nav_foto: "Gallery",
-    nav_kontakt: "Contact",
-    label_jmeno: "Full Name:",
-    placeholder_jmeno: "Enter your name",
-    label_email: "Email:",
-    placeholder_email: "Enter your email",
-    label_pocet: "Number of people:",
-    option_vyberte: "Select...",
-    option_1osoba: "1 person",
-    option_2osoby: "2 people",
-    option_3osoby: "3 people",
-    option_4osoby: "4 people",
-    label_prijezd: "Arrival date:",
-    label_odjezd: "Departure date:",
-    label_poznamka: "Note:",
-    btn_odeslat: "Send Booking",
-    potvrzeni: "Booking was successfully sent! Thank you. 🙏",
-  },
-};
-
-function setLanguage(lang) {
-  localStorage.setItem("language", lang);
-  const elems = document.querySelectorAll("[data-i18n]");
-  elems.forEach((el) => {
-    const key = el.getAttribute("data-i18n");
-    if (preklady[lang][key]) {
-      el.textContent = preklady[lang][key];
-    }
-  });
-
-  // Placeholdery
-  const placeholders = document.querySelectorAll("[data-i18n-placeholder]");
-  placeholders.forEach((el) => {
-    const key = el.getAttribute("data-i18n-placeholder");
-    if (preklady[lang][key]) {
-      el.setAttribute("placeholder", preklady[lang][key]);
-    }
-  });
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  const savedLang = localStorage.getItem("language") || "cz";
-  setLanguage(savedLang);
-
-  // Přepínač jazyka
-  document.querySelectorAll(".lang-menu div").forEach((div) => {
-    div.addEventListener("click", () => {
-      const lang = div.getAttribute("data-lang");
-      setLanguage(lang);
-    });
-  });
-
-  // Formulář - zabránění přesměrování
-  const form = document.getElementById("rezervacni-formular");
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    // Základní validace
-    if (!form.checkValidity()) {
-      form.reportValidity();
-      return;
-    }
-
-    // Odeslat data přes fetch na Formspree
-    const data = new FormData(form);
-    fetch(form.action, {
-      method: "POST",
-      body: data,
-      headers: {
-        Accept: "application/json",
+    const preklady = {
+      cz: {
+        hlavicka: "Apartmán v Albánii",
+        nav_apartman: "Apartmán",
+        nav_rezervace: "Rezervace",
+        nav_cennik: "Ceník",
+        nav_foto: "Fotogalerie",
+        nav_kontakt: "Kontakt",
+        label_jmeno: "Jméno a příjmení:",
+        placeholder_jmeno: "Zadejte své jméno",
+        label_email: "Email:",
+        placeholder_email: "Zadejte svůj email",
+        label_pocet: "Počet osob:",
+        option_vyberte: "Vyberte...",
+        option_1osoba: "1 osoba",
+        option_2osoby: "2 osoby",
+        option_3osoby: "3 osoby",
+        option_4osoby: "4 osoby",
+        label_prijezd: "Datum příjezdu:",
+        label_odjezd: "Datum odjezdu:",
+        label_poznamka: "Poznámka:",
+        btn_odeslat: "Odeslat rezervaci",
+        potvrzeni: "Rezervace byla úspěšně odeslána! Děkujeme. 🙏",
       },
-    })
-      // ... zůstává vše před tím stejné
+      en: {
+        hlavicka: "Apartment in Albania",
+        nav_apartman: "Apartment",
+        nav_rezervace: "Booking",
+        nav_cennik: "Price List",
+        nav_foto: "Gallery",
+        nav_kontakt: "Contact",
+        label_jmeno: "Full Name:",
+        placeholder_jmeno: "Enter your name",
+        label_email: "Email:",
+        placeholder_email: "Enter your email",
+        label_pocet: "Number of people:",
+        option_vyberte: "Select...",
+        option_1osoba: "1 person",
+        option_2osoby: "2 people",
+        option_3osoby: "3 people",
+        option_4osoby: "4 people",
+        label_prijezd: "Arrival date:",
+        label_odjezd: "Departure date:",
+        label_poznamka: "Note:",
+        btn_odeslat: "Send Booking",
+        potvrzeni: "Booking was successfully sent! Thank you. 🙏",
+      },
+    };
 
-.then((response) => {
-  if (response.ok) {
-    form.reset();
-    const jazyk = localStorage.getItem("language") || "cz";
-    const zprava = preklady[jazyk].potvrzeni;
-    const uspechEl = document.getElementById("uspech");
-    uspechEl.textContent = zprava;
-    uspechEl.style.display = "block";
-  } else {
-    alert("Odeslání selhalo, zkuste to prosím znovu.");
-  }
-})
+    function setLanguage(lang) {
+      localStorage.setItem("language", lang);
+      const elems = document.querySelectorAll("[data-i18n]");
+      elems.forEach((el) => {
+        const key = el.getAttribute("data-i18n");
+        if (preklady[lang][key]) {
+          el.textContent = preklady[lang][key];
+        }
+      });
 
-  });
-});
+      const placeholders = document.querySelectorAll("[data-i18n-placeholder]");
+      placeholders.forEach((el) => {
+        const key = el.getAttribute("data-i18n-placeholder");
+        if (preklady[lang][key]) {
+          el.setAttribute("placeholder", preklady[lang][key]);
+        }
+      });
+    }
 
-</script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const savedLang = localStorage.getItem("language") || "cz";
+      setLanguage(savedLang);
 
+      document.querySelectorAll(".lang-menu div").forEach((div) => {
+        div.addEventListener("click", () => {
+          const lang = div.getAttribute("data-lang");
+          setLanguage(lang);
+        });
+      });
+
+      document.getElementById('rezervacni-formular').addEventListener('submit', function (event) {
+        event.preventDefault();
+        const form = event.target;
+        const data = new FormData(form);
+
+        fetch(form.action, {
+          method: form.method,
+          body: data,
+          headers: {
+            'Accept': 'application/json'
+          }
+        }).then(response => {
+          if (response.ok) {
+            form.reset();
+            document.getElementById('uspech').style.display = 'block';
+          } else {
+            alert('Odeslání se nezdařilo. Zkuste to prosím znovu.');
+          }
+        }).catch(error => {
+          alert('Došlo k chybě při odesílání formuláře.');
+        });
+      });
+    });
+  </script>
 </body>
 
 </html>
