@@ -155,17 +155,12 @@
                   <td data-i18n="mesic_cervenec">Červenec</td>
                   <td data-i18n="mesic_srpen">Srpen</td>
                 </tr>
-              </thead>
-              
-
-            <tbody>
                 <tr>
-                    <td>1000 Kč / <span data-i18n="jednotka_den">den</span></td>
-                    <td>1500 Kč / <span data-i18n="jednotka_den">den</span></td>
-                    <td>2000 Kč / <span data-i18n="jednotka_den">den</span></td>
-
+                  <td><span class="price" data-kc="1250">1250 Kč</span> / <span data-i18n="jednotka_den">den</span></td>
+                  <td><span class="price" data-kc="1625">1625 Kč</span> / <span data-i18n="jednotka_den">den</span></td>
+                  <td><span class="price" data-kc="2000">2000 Kč</span> / <span data-i18n="jednotka_den">den</span></td>
                 </tr>
-            </tbody>
+              </thead>
         </table>
     </section>
 
@@ -307,6 +302,46 @@
             });
         });
     </script>
+
+<script>
+    const exchangeRate = 25; // 1 EUR = 25 Kč (můžeš upravit)
+  
+    function updatePricesToCurrency(currency) {
+      const prices = document.querySelectorAll(".price");
+      prices.forEach(el => {
+        const kc = parseFloat(el.dataset.kc);
+        if (currency === "cz") {
+          el.textContent = kc + " Kč";
+        } else if (currency === "en") {
+          const eur = (kc / exchangeRate).toFixed(2);
+          el.textContent = "€" + eur;
+        }
+      });
+    }
+  
+    function setLanguage(lang) {
+      localStorage.setItem("language", lang);
+      const elems = document.querySelectorAll("[data-i18n]");
+      elems.forEach((el) => {
+        const key = el.getAttribute("data-i18n");
+        if (preklady[lang][key]) {
+          el.textContent = preklady[lang][key];
+        }
+      });
+  
+      const placeholders = document.querySelectorAll("[data-i18n-placeholder]");
+      placeholders.forEach((el) => {
+        const key = el.getAttribute("data-i18n-placeholder");
+        if (preklady[lang][key]) {
+          el.setAttribute("placeholder", preklady[lang][key]);
+        }
+      });
+  
+      // aktualizuj ceny
+      updatePricesToCurrency(lang);
+    }
+  </script>
+  
 </body>
 
 </html>
