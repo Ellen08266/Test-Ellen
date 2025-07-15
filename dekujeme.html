@@ -1,46 +1,39 @@
 <!DOCTYPE html>
 <html lang="cs">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Děkujeme za rezervaci</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    body {
-      background-color: #f9f7f1;
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
-      text-align: center;
-      padding: 80px 20px;
-    }
-    h1 {
-      color: rgb(134, 92, 92);
-      font-size: 2.5rem;
-      margin-bottom: 30px;
-    }
-    p {
-      font-size: 1.2rem;
-      color: #444;
-    }
-    a {
-      display: inline-block;
-      margin-top: 40px;
-      padding: 12px 25px;
-      background-color: rgb(134, 92, 92);
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-      font-size: 1rem;
-    }
-    a:hover {
-      background-color: rgb(100, 65, 65);
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="dekujeme_nadpis">Děkujeme za rezervaci</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="translations.js"></script>
+  <script defer src="app.js"></script>
 </head>
+
 <body>
+  <nav>
+    <a href="index.html" data-i18n="nav_domu">Domů</a>
+    <div class="language-dropdown">
+      <button class="lang-btn">🌍 Jazyk ▼</button>
+      <div class="lang-menu">
+        <div data-lang="cz"><img src="https://flagcdn.com/w40/cz.png" alt="CZ" /> Čeština</div>
+        <div data-lang="en"><img src="https://flagcdn.com/w40/gb.png" alt="EN" /> English</div>
+      </div>
+    </div>
+  </nav>
 
-  <h1>Děkujeme za vaši rezervaci!</h1>
-  <p>Brzy vás budeme kontaktovat s potvrzením.</p>
-  <a href="index.html">Zpět na úvodní stránku</a>
+  <main>
+    <h1 data-i18n="dekujeme_nadpis">Děkujeme za vaši rezervaci!</h1>
+    <p data-i18n="dekujeme_text">
+      Vaše rezervace byla úspěšně odeslána. Brzy vás budeme kontaktovat s potvrzením a dalšími informacemi.
+    </p>
+    <a href="index.html" class="btn" data-i18n="zpet_domu">Zpět na hlavní stránku</a>
+  </main>
 
+  <footer>
+    <p>&copy; Ellen Dalessi 2025</p>
+  </footer>
 </body>
+
 </html>
+

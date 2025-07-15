@@ -28,10 +28,13 @@ const preklady = {
     text_apartman: "Objevte kouzlo Albánie a užijte si dovolenou snů v našem nádherném apartmánu u moře!\n\n Nabízíme moderní a vkusně zařízený apartmán s klimatizací a wi-fi o dispozici 2+kk, situovaný ve 4. patře s výtahem. K dispozici jsou rovnou dva balkony s krásným výhledem, které přímo vybízejí k ranní kávě nebo večerní sklence vína při západu slunce.\n\n Apartmán se nachází pouhých 100 metrů od moře, v samém srdci živé pobřežní promenády, kde najdete množství útulných barů, vynikajících restaurací, obchůdků, kaváren i tradičních tržišť. \n\nV těsné blízkosti je dostupná jak soukromá pláž, tak i veřejná, a to vše v příjemné dochozí vzdálenosti. Lokalita je ideální pro milovníky moře, dobrého jídla a středomořské atmosféry.\n\n Díky skvělé poloze je apartmán vzdálen pouhých 35 minut jízdy od mezinárodního letiště v Tiraně, což z něj činí perfektní volbu pro vaši příští dovolenou bez zbytečného cestování.\n\n Neváhejte a rezervujte si svůj termín ještě dnes – Albánie si vás zamiluje a vy ji také!",
     podminky_nadpis: "Obchodní podmínky",
     podminky_text: "Rezervací ubytování souhlasíte s následujícími podmínkami. Zákazník je povinen uhradit rezervační poplatek dle dohody. Zrušení rezervace je možné nejpozději 14 dní před příjezdem. V opačném případě může být účtován storno poplatek.",
-    nav_podminky: "Podmínky"
+    nav_podminky: "Podmínky",
+    dekujeme_nadpis: "Děkujeme za vaši rezervaci!",
+    dekujeme_text: "Vaše rezervace byla úspěšně odeslána. Brzy vás budeme kontaktovat s potvrzením a dalšími informacemi.",
+    zpet_domu: "Zpět na hlavní stránku",
 
   },
-  
+
   en: {
     hlavicka: "Apartment in Albania",
     nav_apartman: "Apartment",
@@ -61,7 +64,10 @@ const preklady = {
     text_apartman: "Discover the charm of Albania and enjoy a dream vacation in our beautiful seaside apartment!\n\nWe offer a modern and tastefully furnished apartment with air conditioning and Wi-Fi, a 1-bedroom with kitchenette layout (2+kk), located on the 4th floor with an elevator. Two balconies with stunning views invite you to enjoy your morning coffee or a glass of wine at sunset.\n\nThe apartment is just 100 meters from the sea, right in the heart of a vibrant coastal promenade full of cozy bars, excellent restaurants, shops, cafés, and traditional markets.\n\nBoth private and public beaches are within easy walking distance. The location is ideal for lovers of the sea, great food, and a Mediterranean atmosphere.\n\nThanks to its excellent location, the apartment is only a 35-minute drive from Tirana International Airport, making it the perfect choice for your next vacation without unnecessary travel.\n\nDon’t hesitate – book your stay today. Albania will win your heart!",
     podminky_nadpis: "Terms and Conditions",
     podminky_text: "By booking accommodation, you agree to the following terms. The customer is required to pay a reservation deposit as agreed. Cancellation must be made at least 14 days prior to arrival. Otherwise, a cancellation fee may apply.",
-    nav_podminky: "Terms"
+    nav_podminky: "Terms",
+    dekujeme_nadpis: "Thank You for Your Booking!",
+    dekujeme_text: "Your booking has been successfully submitted. We will contact you shortly with confirmation and further details.",
+    zpet_domu: "Back to Home Page",
 
   }
 };
