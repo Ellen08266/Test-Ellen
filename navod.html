@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="navod_nadpis">Návod k použití bytu</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="translations.js"></script>
+  <script defer src="app.js"></script>
+</head>
+
+<body>
+  <nav>
+    <a href="index.html" data-i18n="nav_domu">Domů</a>
+    <div class="language-dropdown">
+      <button class="lang-btn">🌍 Jazyk ▼</button>
+      <div class="lang-menu">
+        <div data-lang="cz"><img src="https://flagcdn.com/w40/cz.png" alt="CZ" /> Čeština</div>
+        <div data-lang="en"><img src="https://flagcdn.com/w40/gb.png" alt="EN" /> English</div>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <h1 data-i18n="navod_nadpis">Návod k použití bytu</h1>
+
+    <section>
+      <h2 data-i18n="navod_uvod_nadpis">Úvod</h2>
+      <p data-i18n="navod_uvod_text">
+        Vítejte v našem apartmánu! Tento návod vám pomůže seznámit se s vybavením bytu a základními pravidly pro pohodlný pobyt.
+      </p>
+    </section>
+
+    <section>
+      <h2 data-i18n="navod_vybaveni_nadpis">Vybavení bytu</h2>
+      <p data-i18n="navod_vybaveni_text">
+        Byt je kompletně vybaven nábytkem, spotřebiči, pračkou, klimatizací a vším potřebným pro váš komfort.
+      </p>
+    </section>
+
+    <section>
+      <h2 data-i18n="navod_pravidla_nadpis">Základní pravidla</h2>
+      <ul data-i18n="navod_pravidla_text">
+        <!-- Pro jednoduchost můžeš dát seznam v češtině a angličtině jako překlady -->
+      </ul>
+    </section>
+
+    <section>
+      <h2 data-i18n="navod_kontakt_nadpis">Kontakt</h2>
+      <p data-i18n="navod_kontakt_text">
+        V případě jakýchkoliv dotazů nás neváhejte kontaktovat na email: ellen@dalessi.cz nebo telefonu: 123 45 67 89.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; Ellen Dalessi 2025</p>
+  </footer>
+
+  <script>
+    const preklady = {
+      cz: {
+        nav_domu: "Domů",
+        navod_nadpis: "Návod k použití bytu",
+        navod_uvod_nadpis: "Úvod",
+        navod_uvod_text: "Vítejte v našem apartmánu! Tento návod vám pomůže seznámit se s vybavením bytu a základními pravidly pro pohodlný pobyt.",
+        navod_vybaveni_nadpis: "Vybavení bytu",
+        navod_vybaveni_text: "Byt je kompletně vybaven nábytkem, spotřebiči, pračkou, klimatizací a vším potřebným pro váš komfort.",
+        navod_pravidla_nadpis: "Základní pravidla",
+        navod_pravidla_text: "• Respektujte klid v domě.\n• Neukládejte odpad mimo určené kontejnery.\n• Kouření je v bytě zakázáno.\n• Pejsky prosíme pouze po předchozí domluvě.",
+        navod_kontakt_nadpis: "Kontakt",
+        navod_kontakt_text: "V případě jakýchkoliv dotazů nás neváhejte kontaktovat na email: ellen@dalessi.cz nebo telefonu: 123 45 67 89."
+      },
+      en: {
+        nav_domu: "Home",
+        navod_nadpis: "Apartment User Guide",
+        navod_uvod_nadpis: "Introduction",
+        navod_uvod_text: "Welcome to our apartment! This guide will help you get acquainted with the apartment's equipment and basic rules for a comfortable stay.",
+        navod_vybaveni_nadpis: "Apartment Equipment",
+        navod_vybaveni_text: "The apartment is fully furnished with furniture, appliances, washing machine, air conditioning, and everything you need for your comfort.",
+        navod_pravidla_nadpis: "Basic Rules",
+        navod_pravidla_text: "• Please respect the house quiet hours.\n• Do not dispose of waste outside designated containers.\n• Smoking is prohibited inside the apartment.\n• Pets allowed only upon prior agreement.",
+        navod_kontakt_nadpis: "Contact",
+        navod_kontakt_text: "If you have any questions, please contact us at email: ellen@dalessi.cz or phone: 123 45 67 89."
+      }
+    };
+
+    function setLanguage(lang) {
+      localStorage.setItem("language", lang);
+      const elems = document.querySelectorAll("[data-i18n]");
+      elems.forEach((el) => {
+        const key = el.getAttribute("data-i18n");
+        if (preklady[lang][key]) {
+          if (key === "navod_pravidla_text") {
+            // zvládneme víceřádkový text v <ul> jako seznam
+            const lines = preklady[lang][key].split("\n");
+            el.innerHTML = lines.map(line => `<li>${line.replace("• ", "")}</li>`).join("");
+          } else {
+            el.textContent = preklady[lang][key];
+          }
+        }
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const savedLang = localStorage.getItem("language") || "cz";
+      setLanguage(savedLang);
+
+      document.querySelectorAll(".lang-menu div").forEach((div) => {
+        div.addEventListener("click", () => {
+          const lang = div.getAttribute("data-lang");
+          setLanguage(lang);
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>
