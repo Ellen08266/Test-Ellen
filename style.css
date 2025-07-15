@@ -135,7 +135,7 @@ html {
     display: block;
     width: 30px;
     height: 6px;
-    background-color: red;
+    background-color: lightblue;
     margin: 8px auto;
     border-radius: 2px;
   }
@@ -217,6 +217,7 @@ html {
   .kontakt h2 {
     font-size: 3rem;
     margin-bottom: 30px;
+    color: white;
   }
   
   .kontakt p {
