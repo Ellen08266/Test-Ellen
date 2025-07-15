@@ -1,38 +1,45 @@
-// Překlad a jazykový přepínač
+function setLanguage(lang, translations) {
+  localStorage.setItem("language", lang);
+
+  // Textové překlady
+  document.querySelectorAll("[data-i18n]").forEach((el) => {
+    const key = el.getAttribute("data-i18n");
+    if (translations[lang] && translations[lang][key]) {
+      el.textContent = translations[lang][key];
+    }
+  });
+
+  // Placeholdery
+  document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+    const key = el.getAttribute("data-i18n-placeholder");
+    if (translations[lang] && translations[lang][key]) {
+      el.setAttribute("placeholder", translations[lang][key]);
+    }
+  });
+
+  // Alt texty obrázků
+  document.querySelectorAll("[data-i18n-alt]").forEach((el) => {
+    const key = el.getAttribute("data-i18n-alt");
+    if (translations[lang] && translations[lang][key]) {
+      el.setAttribute("alt", translations[lang][key]);
+    }
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
-  const preklady = window.preklady;
+  const savedLang = localStorage.getItem("language") || "cz";
 
-  function setLanguage(lang) {
-    localStorage.setItem("language", lang);
-
-    // Přeložit texty
-    document.querySelectorAll("[data-i18n]").forEach(el => {
-      const key = el.getAttribute("data-i18n");
-      if (preklady[lang] && preklady[lang][key]) {
-        el.textContent = preklady[lang][key];
-      }
-    });
-
-    // Přeložit placeholdery
-    document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
-      const key = el.getAttribute("data-i18n-placeholder");
-      if (preklady[lang] && preklady[lang][key]) {
-        el.setAttribute("placeholder", preklady[lang][key]);
-      }
-    });
-
-    // Pokud máme ceny, můžeme aktualizovat zde (není třeba na podmínkách)
+  if (typeof preklady !== "undefined") {
+    setLanguage(savedLang, preklady);
   }
 
-  // Načíst uložený jazyk nebo výchozí
-  const savedLang = localStorage.getItem("language") || "cz";
-  setLanguage(savedLang);
-
-  // Nastavit posluchače na jazykové volby
-  document.querySelectorAll(".lang-menu div").forEach(div => {
+  document.querySelectorAll(".lang-menu div").forEach((div) => {
     div.addEventListener("click", () => {
       const lang = div.getAttribute("data-lang");
-      setLanguage(lang);
+      if (typeof preklady !== "undefined") {
+        setLanguage(lang, preklady);
+      }
     });
   });
 });
+

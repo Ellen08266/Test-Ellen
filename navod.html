@@ -45,7 +45,8 @@
             <p data-i18n="navod_klima_text">
                 Pro zapnutí klimatizace použijte dálkové ovládání, které se nachází na stole v obýváku.
             </p>
-            <img src="images/klimatizace.jpg" alt="Dálkové ovládání klimatizace">
+            <img src="images/klimatizace.jpg" alt="Dálkové ovládání klimatizace" data-i18n-alt="alt_klimatizace">
+
         </section>
 
         <section>
@@ -83,6 +84,7 @@
                 navod_kontakt_text: "V případě jakýchkoliv dotazů nás neváhejte kontaktovat na email: ellen@dalessi.cz nebo telefonu: 123 45 67 89.",
                 navod_klima_nadpis: "Návod na použití klimatizace",
                 navod_klima_text: "Pro zapnutí klimatizace použijte dálkové ovládání, které se nachází na stole v obýváku.",
+                alt_klimatizace: "Dálkové ovládání klimatizace",
             },
             en: {
                 nav_domu: "Home",
@@ -97,6 +99,7 @@
                 navod_kontakt_text: "If you have any questions, please contact us at email: ellen@dalessi.cz or phone: 123 45 67 89.",
                 navod_klima_nadpis: "How to Use the Air Conditioning",
                 navod_klima_text: "To turn on the air conditioning, use the remote control located on the living room table.",
+                alt_klimatizace: "Air conditioning remote control",
             }
         };
 
@@ -115,6 +118,14 @@
                     }
                 }
             });
+            const altElems = document.querySelectorAll("[data-i18n-alt]");
+            altElems.forEach((el) => {
+                const key = el.getAttribute("data-i18n-alt");
+                if (preklady[lang][key]) {
+                    el.setAttribute("alt", preklady[lang][key]);
+                }
+            });
+
         }
 
         document.addEventListener("DOMContentLoaded", () => {
