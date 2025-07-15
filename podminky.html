@@ -2,96 +2,28 @@
 <html lang="cs">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title data-i18n="podminky_nadpis">Obchodní podmínky</title>
   <link rel="stylesheet" href="style.css" />
   <script defer src="translations.js"></script>
   <script defer src="app.js"></script>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-      padding: 0;
-    }
-
-    .language-dropdown {
-      position: relative;
-      display: inline-block;
-      float: right;
-      margin: 10px 20px;
-    }
-
-    .lang-btn {
-      background-color: bisque;
-      border: none;
-      padding: 10px 15px;
-      font-size: 16px;
-      cursor: pointer;
-      border-radius: 5px;
-    }
-
-    .lang-menu {
-      display: none;
-      position: absolute;
-      right: 0;
-      background-color: white;
-      min-width: 150px;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-      z-index: 1;
-      border-radius: 6px;
-      animation: fadeIn 0.3s ease-in-out;
-    }
-
-    .lang-menu div {
-      padding: 10px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-    }
-
-    .lang-menu div img {
-      margin-right: 8px;
-      width: 24px;
-      height: 16px;
-    }
-
-    .language-dropdown:hover .lang-menu {
-      display: block;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(-5px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-  </style>
 </head>
 
 <body>
-  <div class="language-dropdown">
-    <button class="lang-btn">🌍 Jazyk ▼</button>
-    <div class="lang-menu">
-      <div data-lang="cz"><img src="https://flagcdn.com/w40/cz.png" alt="CZ" /> Čeština</div>
-      <div data-lang="en"><img src="https://flagcdn.com/w40/gb.png" alt="EN" /> English</div>
-    </div>
-  </div>
-
-  <header>
-    <h1 data-i18n="podminky_nadpis">Obchodní podmínky</h1>
-  </header>
-
   <nav>
     <a href="index.html" data-i18n="nav_domu">Domů</a>
+    <div class="language-dropdown">
+      <button class="lang-btn">🌍 Jazyk ▼</button>
+      <div class="lang-menu">
+        <div data-lang="cz"><img src="https://flagcdn.com/w40/cz.png" alt="CZ" /> Čeština</div>
+        <div data-lang="en"><img src="https://flagcdn.com/w40/gb.png" alt="EN" /> English</div>
+      </div>
+    </div>
   </nav>
 
   <main>
+    <h1 data-i18n="podminky_nadpis">Obchodní podmínky</h1>
     <p data-i18n="podminky_text">
       Rezervací ubytování souhlasíte s následujícími podmínkami. Zákazník je povinen uhradit rezervační poplatek dle
       dohody. Zrušení rezervace je možné nejpozději 14 dní před příjezdem. V opačném případě může být účtován storno
@@ -106,31 +38,23 @@
   <script>
     const preklady = {
       cz: {
-        nav_apartman: "Apartmán",
-        nav_rezervace: "Rezervace",
-        nav_cennik: "Ceník",
-        nav_foto: "Fotogalerie",
-        nav_kontakt: "Kontakt",
-        nav_podminky: "Podmínky",
+        nav_domu: "Domů",
         podminky_nadpis: "Obchodní podmínky",
-        podminky_text: "Rezervací ubytování souhlasíte s následujícími podmínkami. Zákazník je povinen uhradit rezervační poplatek dle dohody. Zrušení rezervace je možné nejpozději 14 dní před příjezdem. V opačném případě může být účtován storno poplatek."
+        podminky_text:
+          "Rezervací ubytování souhlasíte s následujícími podmínkami. Zákazník je povinen uhradit rezervační poplatek dle dohody. Zrušení rezervace je možné nejpozději 14 dní před příjezdem. V opačném případě může být účtován storno poplatek."
       },
       en: {
-        nav_apartman: "Apartment",
-        nav_rezervace: "Booking",
-        nav_cennik: "Price List",
-        nav_foto: "Gallery",
-        nav_kontakt: "Contact",
-        nav_podminky: "Terms",
+        nav_domu: "Home",
         podminky_nadpis: "Terms and Conditions",
-        podminky_text: "By booking accommodation, you agree to the following terms. The customer is required to pay a reservation deposit as agreed. Cancellation must be made at least 14 days prior to arrival. Otherwise, a cancellation fee may apply."
+        podminky_text:
+          "By booking accommodation, you agree to the following terms. The customer is required to pay a reservation deposit as agreed. Cancellation must be made at least 14 days prior to arrival. Otherwise, a cancellation fee may apply."
       }
     };
 
     function setLanguage(lang) {
       localStorage.setItem("language", lang);
       const elems = document.querySelectorAll("[data-i18n]");
-      elems.forEach(el => {
+      elems.forEach((el) => {
         const key = el.getAttribute("data-i18n");
         if (preklady[lang][key]) {
           el.textContent = preklady[lang][key];
@@ -142,7 +66,7 @@
       const savedLang = localStorage.getItem("language") || "cz";
       setLanguage(savedLang);
 
-      document.querySelectorAll(".lang-menu div").forEach(div => {
+      document.querySelectorAll(".lang-menu div").forEach((div) => {
         div.addEventListener("click", () => {
           const lang = div.getAttribute("data-lang");
           setLanguage(lang);
@@ -153,5 +77,6 @@
 </body>
 
 </html>
+
 
 
