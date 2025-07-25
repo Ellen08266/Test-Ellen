@@ -1,351 +1,350 @@
- /* Box sizing pro celou stránku */
+  /* Box sizing pro celou stránku */
 html {
-    box-sizing: border-box;
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/* Základní styly pro tělo */
+body {
+  margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: #f9f7f1;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Hlavička */
+header {
+  background: url("foto/beach-more.jpg") center center no-repeat;
+  background-size: cover;
+  color: white;
+  text-align: center;
+  padding: 150px 20px;
+}
+
+header h1 {
+  font-style: italic;
+  font-size: 3.5rem;
+  margin: 0;
+}
+
+/* Navigace */
+nav {
+  background-color: bisque;
+  text-align: center;
+  padding: 20px 0;
+  font-style: italic;
+  font-size: 1.3rem;
+  position: relative;
+}
+
+nav a {
+  text-decoration: none;
+  color: rgb(134, 92, 92);
+  margin: 0 20px;
+  padding: 10px 15px;
+  transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+  background-color: rgb(212, 202, 189);
+  border-radius: 5px;
+}
+
+/* Jazykový přepínač */
+.language-dropdown {
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  display: inline-block;
+}
+
+.lang-btn {
+  background-color: bisque;
+  border: none;
+  padding: 10px 15px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.lang-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: white;
+  min-width: 150px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 6px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.lang-menu div {
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.lang-menu div img {
+  margin-right: 8px;
+  width: 24px;
+  height: 16px;
+}
+
+.language-dropdown:hover .lang-menu {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
   }
-  *,
-  *:before,
-  *:after {
-    box-sizing: inherit;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  /* Základní styly pro tělo */
-  body {
-    margin: 0;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-color: #f9f7f1;
-    color: #333;
-    line-height: 1.6;
-  }
-  
-  /* Hlavička */
-  header {
-    background: url("foto/beach-more.jpg") center center no-repeat;
-    background-size: cover;
-    color: white;
-    text-align: center;
-    padding: 150px 20px;
-  }
-  
-  header h1 {
-    font-style: italic;
-    font-size: 3.5rem;
-    margin: 0;
-  }
-  
-  /* Navigace */
-  nav {
-    background-color: bisque;
-    text-align: center;
-    padding: 20px 0;
-    font-style: italic;
-    font-size: 1.3rem;
-    position: relative;
-  }
-  
+}
+
+/* Sekce */
+section {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+/* Nadpisy sekcí */
+section h2 {
+  color: rgb(134, 92, 92);
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+#apartman::before,
+#apartman::after {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 6px;
+  background-color: lightblue;
+  margin: 8px auto;
+  border-radius: 2px;
+}
+
+/* Text */
+p {
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Fotogalerie */
+.fotogalerie {
+  padding-left: 20px;
+  text-align: center;
+}
+
+.fotogalerie img {
+  width: 300px;
+  max-width: 90vw;
+  height: auto;
+  border: 10px solid bisque;
+  border-radius: 10px;
+  margin: 15px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.fotogalerie img:hover {
+  transform: scale(1.05);
+}
+
+/* Ceník */
+.cennik {
+  background-color: antiquewhite;
+  padding: 30px 20px;
+  border-radius: 10px;
+  margin-bottom: 80px;
+}
+
+.cennik table {
+  width: 100%;
+  border-collapse: collapse;
+  font-style: italic;
+}
+
+.cennik th,
+.cennik td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.cennik th {
+  font-weight: lighter;
+  color: rgb(167, 144, 144);
+  font-size: 1.4rem;
+}
+
+.cennik td {
+  color: rgb(144, 130, 130);
+  font-size: 1.1rem;
+}
+
+/* Zvýraznění roku */
+.cennik th[colspan] strong {
+  font-size: 2.5rem;
+}
+
+/* Kontakt */
+.kontakt {
+  background: url("foto/beach-more.jpg") center center no-repeat;
+  background-size: cover;
+  color: whitesmoke;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.kontakt h2 {
+  font-size: 3rem;
+  margin-bottom: 30px;
+  color: white;
+}
+
+.kontakt p {
+  font-size: 1.3rem;
+  margin: 10px 0;
+  font-style: italic;
+}
+
+.kontakt a {
+  color: whitesmoke;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.kontakt a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  background-color: bisque;
+  text-align: center;
+  padding: 15px 0;
+  font-style: italic;
+  font-weight: lighter;
+}
+
+/* Rezervační formulář */
+form {
+  max-width: 600px;
+  margin: 0 auto 60px;
+  padding: 20px;
+  background-color: #fff7e6;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(134, 92, 92, 0.2);
+}
+
+form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: rgb(134, 92, 92);
+}
+
+form input,
+form select,
+form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 20px;
+  border: 2px solid rgb(134, 92, 92);
+  border-radius: 5px;
+  font-size: 1rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  resize: vertical;
+}
+
+form button {
+  background-color: rgb(134, 92, 92);
+  color: whitesmoke;
+  border: none;
+  padding: 12px 25px;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: rgb(102, 70, 70);
+}
+
+/* Responzivní design */
+
+/* Tablet */
+@media (max-width: 768px) {
   nav a {
-    text-decoration: none;
-    color: rgb(134, 92, 92);
-    margin: 0 20px;
-    padding: 10px 15px;
-    transition: background-color 0.3s ease;
-  }
-  
-  nav a:hover {
-    background-color: rgb(212, 202, 189);
-    border-radius: 5px;
-  }
-  
-  /* Jazykový přepínač */
-  .language-dropdown {
-    position: absolute;
-    right: 20px;
-    top: 15px;
     display: inline-block;
-  }
-  
-  .lang-btn {
-    background-color: bisque;
-    border: none;
-    padding: 10px 15px;
-    font-size: 1rem;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-  
-  .lang-menu {
-    display: none;
-    position: absolute;
-    right: 0;
-    background-color: white;
-    min-width: 150px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    border-radius: 6px;
-    animation: fadeIn 0.3s ease-in-out;
-  }
-  
-  .lang-menu div {
-    padding: 10px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-  }
-  
-  .lang-menu div img {
-    margin-right: 8px;
-    width: 24px;
-    height: 16px;
-  }
-  
-  .language-dropdown:hover .lang-menu {
-    display: block;
-  }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(-5px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  /* Sekce */
-  section {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 0 20px;
-  }
-  
-  /* Nadpisy sekcí */
-  section h2 {
-    color: rgb(134, 92, 92);
-    font-size: 2rem;
-    text-align: center;
-    margin-bottom: 20px;
-    position: relative;
-    padding-bottom: 10px;
-  }
-  
-  #apartman::before,
-  #apartman::after {
-    content: "";
-    display: block;
-    width: 30px;
-    height: 6px;
-    background-color: lightblue;
-    margin: 8px auto;
-    border-radius: 2px;
-  }
-  
-  /* Text */
-  p {
-    font-weight: 300;
-    text-align: center;
-    margin-bottom: 30px;
-  }
-  
-  /* Fotogalerie */
-  .fotogalerie {
-    padding-left: 20px;
-    text-align: center;
-  }
-  
-  .fotogalerie img {
-    width: 300px;
-    max-width: 90vw;
-    height: auto;
-    border: 10px solid bisque;
-    border-radius: 10px;
-    margin: 15px;
-    transition: transform 0.3s ease;
-    cursor: pointer;
-  }
-  
-  .fotogalerie img:hover {
-    transform: scale(1.05);
-  }
-  
-  /* Ceník */
-  .cennik {
-    background-color: antiquewhite;
-    padding: 30px 20px;
-    border-radius: 10px;
-    margin-bottom: 80px;
-  }
-  
-  .cennik table {
-    width: 100%;
-    border-collapse: collapse;
-    font-style: italic;
-  }
-  
-  .cennik th,
-  .cennik td {
-    padding: 12px;
-    text-align: center;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .cennik th {
-    font-weight: lighter;
-    color: rgb(167, 144, 144);
-    font-size: 1.4rem;
-  }
-  
-  .cennik td {
-    color: rgb(144, 130, 130);
+    margin: 10px 15px;
+    padding: 8px 12px;
     font-size: 1.1rem;
   }
-  
-  /* Zvýraznění roku */
-  .cennik th[colspan] strong {
-    font-size: 2.5rem;
-  }
-  
-  /* Kontakt */
-  .kontakt {
-    background: url("foto/beach-more.jpg") center center no-repeat;
-    background-size: cover;
-    color: whitesmoke;
-    padding: 60px 20px;
-    text-align: center;
-  }
-  
-  .kontakt h2 {
-    font-size: 3rem;
-    margin-bottom: 30px;
-    color: white;
-  }
-  
-  .kontakt p {
-    font-size: 1.3rem;
+
+  .fotogalerie img {
+    width: 90vw;
     margin: 10px 0;
-    font-style: italic;
   }
-  
-  .kontakt a {
-    color: whitesmoke;
-    text-decoration: none;
-    font-weight: bold;
+
+  section {
+    margin: 30px 15px;
   }
-  
-  .kontakt a:hover {
-    text-decoration: underline;
+}
+
+/* Mobil */
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 2rem;
+    padding: 80px 20px;
   }
-  
-  /* Footer */
-  footer {
-    background-color: bisque;
-    text-align: center;
-    padding: 15px 0;
-    font-style: italic;
-    font-weight: lighter;
+
+  nav {
+    font-size: 1rem;
   }
-  
-  /* Rezervační formulář */
+
+  nav a {
+    margin: 5px 8px;
+    padding: 6px 10px;
+  }
+
+  .cennik table,
+  .cennik th,
+  .cennik td {
+    font-size: 0.9rem;
+  }
+
   form {
-    max-width: 600px;
-    margin: 0 auto 60px;
-    padding: 20px;
-    background-color: #fff7e6;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(134, 92, 92, 0.2);
+    padding: 15px;
   }
-  
-  form label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-    color: rgb(134, 92, 92);
-  }
-  
+
   form input,
   form select,
   form textarea {
-    width: 100%;
-    padding: 10px 12px;
-    margin-bottom: 20px;
-    border: 2px solid rgb(134, 92, 92);
-    border-radius: 5px;
-    font-size: 1rem;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    resize: vertical;
+    font-size: 0.9rem;
   }
-  
+
   form button {
-    background-color: rgb(134, 92, 92);
-    color: whitesmoke;
-    border: none;
-    padding: 12px 25px;
-    font-size: 1.2rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    font-size: 1rem;
+    padding: 10px 20px;
   }
-  
-  form button:hover {
-    background-color: rgb(102, 70, 70);
-  }
-  
-  /* Responzivní design */
-  
-  /* Tablet */
-  @media (max-width: 768px) {
-    nav a {
-      display: inline-block;
-      margin: 10px 15px;
-      padding: 8px 12px;
-      font-size: 1.1rem;
-    }
-  
-    .fotogalerie img {
-      width: 90vw;
-      margin: 10px 0;
-    }
-  
-    section {
-      margin: 30px 15px;
-    }
-  }
-  
-  /* Mobil */
-  @media (max-width: 480px) {
-    header h1 {
-      font-size: 2rem;
-      padding: 80px 20px;
-    }
-  
-    nav {
-      font-size: 1rem;
-    }
-  
-    nav a {
-      margin: 5px 8px;
-      padding: 6px 10px;
-    }
-  
-    .cennik table,
-    .cennik th,
-    .cennik td {
-      font-size: 0.9rem;
-    }
-  
-    form {
-      padding: 15px;
-    }
-  
-    form input,
-    form select,
-    form textarea {
-      font-size: 0.9rem;
-    }
-  
-    form button {
-      font-size: 1rem;
-      padding: 10px 20px;
-    }
-  }  
-  
+}  
