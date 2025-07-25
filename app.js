@@ -1,3 +1,18 @@
+const exchangeRate = 25; // 1 EUR = 25 Kč
+
+        function updatePricesToCurrency(currency) {
+            const prices = document.querySelectorAll(".price");
+            prices.forEach(el => {
+                const kc = parseFloat(el.dataset.kc);
+                if (currency === "cz") {
+                    el.textContent = kc + " Kč";
+                } else if (currency === "en") {
+                    const eur = (kc / exchangeRate).toFixed(2);
+                    el.textContent = "€" + eur;
+                }
+            });
+        }
+
 function setLanguage(lang, translations) {
   localStorage.setItem("language", lang);
 
