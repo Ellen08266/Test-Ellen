@@ -32,6 +32,7 @@ const preklady = {
     dekujeme_nadpis: "Děkujeme za vaši rezervaci!",
     dekujeme_text: "Vaše rezervace byla úspěšně odeslána. Brzy vás budeme kontaktovat s potvrzením a dalšími informacemi.",
     zpet_domu: "Zpět na hlavní stránku",
+    navod_nadpis: "Návod",
 
   },
 
@@ -68,6 +69,7 @@ const preklady = {
     dekujeme_nadpis: "Thank You for Your Booking!",
     dekujeme_text: "Your booking has been successfully submitted. We will contact you shortly with confirmation and further details.",
     zpet_domu: "Back to Home Page",
+    navod_nadpis: "User Guide"
 
   }
 };
