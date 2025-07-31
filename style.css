@@ -348,3 +348,8 @@ form button:hover {
     padding: 10px 20px;
   }
 }  
+
+/* v navodu.html <p> zabazpeci radkovani-odskok  */
+.multiline {
+  white-space: pre-line;
+}
