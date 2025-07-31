@@ -364,3 +364,12 @@ p span {
   margin: 0;
   padding: 0;
 }
+
+
+#pravidla p {
+  margin: 0.3em 0;
+  padding: 0;
+  text-indent: 0;
+  text-align: left;
+}
+
