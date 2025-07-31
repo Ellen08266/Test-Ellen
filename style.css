@@ -352,4 +352,15 @@ form button:hover {
 /* v navodu.html <p> zabazpeci radkovani-odskok  */
 .multiline {
   white-space: pre-line;
+  
+}
+
+/* odradkovani  ale moc to nefunguje */
+p {
+  margin: 1em 0;
+}
+p span {
+  display: block;
+  margin: 0;
+  padding: 0;
 }
