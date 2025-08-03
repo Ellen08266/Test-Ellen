@@ -94,20 +94,25 @@
 
     <section class="apartman">
         <h2 id="apartman" data-i18n="nav_apartman">Apartmán</h2>
-        <p data-i18n="text_apartman"  class="multiline">
+        <p data-i18n="text_apartman" class="multiline">
             Objevte kouzlo Albánie a užijte si dovolenou v apartmánu u moře!
 
-            <span>Nabízíme moderní a vkusně zařízený apartmán s klimatizací a wi-fi o dispozici 2+kk, situovaný ve 4. patře s</span>
-            <span>výtahem. K dispozici jsou rovnou dva balkony s krásným výhledem, které přímo vybízejí k ranní kávě nebo</span>
+            <span>Nabízíme moderní a vkusně zařízený apartmán s klimatizací a wi-fi o dispozici 2+kk, situovaný ve 4.
+                patře s</span>
+            <span>výtahem. K dispozici jsou rovnou dva balkony s krásným výhledem, které přímo vybízejí k ranní kávě
+                nebo</span>
             <span>večerní sklence vína při západu slunce.</span>
 
-            <span>Apartmán se nachází pouhých 100 metrů od moře, v samém srdci živé pobřežní promenády, kde najdete množství</span>
+            <span>Apartmán se nachází pouhých 100 metrů od moře, v samém srdci živé pobřežní promenády, kde najdete
+                množství</span>
             <span>útulných barů, vynikajících restaurací, obchůdků, kaváren i tradičních tržišť.</span>
 
-            <span>V těsné blízkosti je dostupná jak soukromá pláž, tak i veřejná, a to vše v příjemné dochozí vzdálenosti.</span>
+            <span>V těsné blízkosti je dostupná jak soukromá pláž, tak i veřejná, a to vše v příjemné dochozí
+                vzdálenosti.</span>
             <span>VLokalita je ideální pro milovníky moře, dobrého jídla a středomořské atmosféry.</span>
 
-            <span>V Díky skvělé poloze je apartmán vzdálen pouhých 35 minut jízdy od mezinárodního letiště v Tiraně, což z něj</span>
+            <span>V Díky skvělé poloze je apartmán vzdálen pouhých 35 minut jízdy od mezinárodního letiště v Tiraně, což
+                z něj</span>
             <span>Včiní perfektní volbu pro vaši příští dovolenou bez zbytečného cestování.</span>
 
             <span>VNeváhejte a rezervujte si svůj termín ještě dnes – Albánie si vás zamiluje a vy ji také!</span>
@@ -117,11 +122,11 @@
     <section>
         <h2 data-i18n="navod_poloha_nadpis">📍 Poloha apartmánu</h2>
         <div class="center-link">
-          <a href="https://maps.app.goo.gl/pp6RHNfqQqxMaZ1T6" target="_blank">
-               Zobrazit na mapě  🗺️   Show on map
-          </a>
+            <a href="https://maps.app.goo.gl/pp6RHNfqQqxMaZ1T6" target="_blank">
+                Zobrazit na mapě 🗺️ Show on map
+            </a>
         </div>
-      </section>
+    </section>
 
     <section class="rezervace">
         <h2 id="rezervace" data-i18n="nav_rezervace">Rezervace</h2>
@@ -183,13 +188,18 @@
 
     <section class="fotogalerie" id="fotogalerie">
         <h2 data-i18n="nav_foto">Fotogalerie</h2>
-        <img src="foto/AlbanieObyvak.jpg" alt="Obývací pokoj" />
-        <img src="foto/AlbanieLoznice.jpg" alt="Ložnice" />
-        <img src="foto/AlbanieKuchyn.jpg" alt="Kuchyň" />
-        <img src="foto/AlbanieKoupelna.jpg" alt="Koupelna" />
-        <img src="foto/AlbanieBalkon.jpg" alt="Balkon" />
-        <img src="foto/AlbanieChodba.jpg" alt="Chodba" />
+        <img src="foto/AlbanieObyvak.jpg" alt="Obývací pokoj" onclick="openLightbox(this)" />
+        <img src="foto/AlbanieLoznice.jpg" alt="Ložnice" onclick="openLightbox(this)" />
+        <img src="foto/AlbanieKuchyn.jpg" alt="Kuchyň" onclick="openLightbox(this)" />
+        <img src="foto/AlbanieKoupelna.jpg" alt="Koupelna" onclick="openLightbox(this)" />
+        <img src="foto/AlbanieBalkon.jpg" alt="Balkon" onclick="openLightbox(this)" />
+        <img src="foto/AlbanieChodba.jpg" alt="Chodba" onclick="openLightbox(this)" />
     </section>
+
+
+    <div id="lightbox" onclick="closeLightbox()">
+        <img id="lightbox-img" src="" alt="Zvětšený obrázek">
+    </div>
 
 
     <section class="kontakt" id="kontakt">
@@ -208,7 +218,7 @@
             cz: {
                 hlavicka: "Apartmán v Albánii",
                 nav_apartman: "Apartmán",
-                navod_poloha_nadpis:"📍 Poloha apartmánu",
+                navod_poloha_nadpis: "📍 Poloha apartmánu",
                 nav_rezervace: "Rezervace",
                 nav_cennik: "Ceník",
                 nav_foto: "Fotogalerie",
@@ -244,7 +254,7 @@
             en: {
                 hlavicka: "Apartment in Albania",
                 nav_apartman: "Apartment",
-                navod_poloha_nadpis:"📍 Apartment location",
+                navod_poloha_nadpis: "📍 Apartment location",
                 nav_rezervace: "Booking",
                 nav_cennik: "Price List",
                 nav_foto: "Gallery",
@@ -406,6 +416,21 @@
                 });
             });
         });
+
+/* odkaz na zvetseni fotek */
+
+        function openLightbox(img) {
+            const lightbox = document.getElementById("lightbox");
+            const lightboxImg = document.getElementById("lightbox-img");
+            lightbox.style.display = "flex";
+            lightboxImg.src = img.src;
+        }
+
+        function closeLightbox() {
+            document.getElementById("lightbox").style.display = "none";
+        }
+
+
     </script>
 </body>
 
