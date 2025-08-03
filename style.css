@@ -373,3 +373,16 @@ p span {
   text-align: left;
 }
 
+.center-link {
+  text-align: center;
+  margin: 1em 0;
+}
+.center-link a {
+  font-size: 1.1em;
+  color: #0077cc;
+  text-decoration: none;
+}
+.center-link a:hover {
+  text-decoration: underline;
+}
+
