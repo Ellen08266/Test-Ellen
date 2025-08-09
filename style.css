@@ -391,7 +391,7 @@ p span {
 #lightbox {
   display: none;
   position: fixed;
-  z-index: 1000;
+  z-index: 9999align-items: center;;
   top: 0; left: 0;
   width: 100%;
   height: 100%;
@@ -399,6 +399,7 @@ p span {
   justify-content: center;
   align-items: center;
   cursor: zoom-out;
+  align-items: center;
 }
 
 #lightbox img {
@@ -419,4 +420,46 @@ p span {
 .fotogalerie img:hover {
   transform: scale(1.05);
 }
+
+/* posouvani obrazku sipkami */
+.lightbox-content {
+  max-width: 90%;
+  max-height: 80%;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  color: white;
+  font-size: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+  transform: translateY(-50%);
+  padding: 10px;
+}
+
+.arrow.left {
+  left: 30px;
+}
+
+.arrow.right {
+  right: 30px;
+}
+
+.arrow:hover, .close:hover {
+  color: #f1c40f;
+}
+
+/* konec posouvani obrazku sipkami */
 
