@@ -409,6 +409,7 @@ p span {
   border-radius: 10px;
 } 
 
+/* efekt prolínaní  */
 .fotogalerie img {
   width: 200px;
   margin: 10px;
@@ -425,7 +426,7 @@ p span {
 .lightbox-content {
   max-width: 90%;
   max-height: 80%;
-}
+} 
 
 .close {
   position: absolute;
@@ -459,7 +460,70 @@ p span {
 
 .arrow:hover, .close:hover {
   color: #f1c40f;
-}
+}  
 
 /* konec posouvani obrazku sipkami */
+
+
+/* obchdni podminky   */
+
+div h1 {
+  padding-left: 445px;
+}
+
+
+
+/* stylovani podminky zacatek  */
+
+.terms-section {
+  padding: 40px 20px;
+  background: #f8f8f8;
+  font-family: Arial, sans-serif;
+}
+
+.terms-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.terms-block {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+.terms-block h2 {
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+  color: #333;
+}
+
+.terms-block h3 {
+  margin-top: 20px;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.terms-block ul {
+  padding-left: 18px;
+  margin-top: 8px;
+}
+
+.terms-block ul li {
+  margin-bottom: 6px;
+  line-height: 1.9;
+  color: #444;
+}
+
+@media (max-width: 768px) {
+  .terms-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* stylovani podminky konec */
 
