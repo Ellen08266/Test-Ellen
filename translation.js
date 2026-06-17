@@ -21,7 +21,7 @@ const preklady = {
     label_poznamka: "Poznámka:",
     btn_odeslat: "Odeslat rezervaci",
     potvrzeni: "Rezervace byla úspěšně odeslána! Děkujeme. 🙏",
-    mesic_zari_kveten: "Září-Květen",
+    mesic_zari_kveten: "September-May",
     mesic_cerven: "Červen",
     mesic_cervenec: "Červenec",
     mesic_srpen: "Srpen",
